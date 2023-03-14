@@ -1,19 +1,118 @@
-#!/bin/bash
+# Función para mostrar el submenú de opciones
+submenu() {
+    echo "Usted esta en la sección $nombre_seccion, seleccione la opción que desea utilizar:"
+    echo "1. Agregar información"
+    echo "2. Buscar información"
+    echo "3. Eliminar información"
+    echo "4. Leer base de información."
+    echo "5. Volver al menú principal"
+    echo "6. Salir"
+    echo " "
+    read opcion
 
-echo "Ingresa una opción":
-echo -e "-a(metodologías ágiles) \n-t(metodologías tradicionales)\n" 
-read opc
+    case $opcion in
+        6)
+            exit 0
+            ;;
+        *)
+            echo "Opción inválida."
+            submenu
+            ;;
+    esac
+}
 
-case $opc in
-    -a)
-    echo "Bienvenido a la guía rápida de Agile, para continuar seleccione un tema:" 
-    echo -e "1.SCRUM \n2.X.P. \n3.Kanban \n4.Crystal\n"
-        ;;
-    -t )
-    echo "Bienvenido a la guía rápida de metodologías tradicionales, para continuar seleccione un tema:" 
-    echo -e "1.Cascada \n2.Espiral \n3.Modelo V\n"
-        ;;
-    *)
-    echo "Opción invalida"
-        ;;
-esac   
+# Función para mostrar el menú principal
+menu_principal() {
+    if [ "$tipo_metodologias" == "Agile" ]; then
+
+        echo "Bienvenido a la guía rápida de $tipo_metodologias, para continuar seleccione un tema:"
+        echo "1. SCRUM"
+        echo "2. X.P."
+        echo "3. Kanban"
+        echo "4. Crystal"
+        echo "5. Salir"
+        echo " "
+        read opcion
+
+        case $opcion in
+            1)
+                nombre_seccion="SCRUM"
+                archivo="scrum.inf"
+                submenu
+                ;;
+            2)
+                nombre_seccion="X.P."
+                archivo="xp.inf"
+                submenu
+                ;;
+            3)
+                nombre_seccion="Kanban"
+                archivo="kanban.inf"
+                submenu
+                ;;
+            4)
+                nombre_seccion="Crystal"
+                archivo="crystal.inf"
+                submenu
+                ;;
+            5)
+                exit 0
+                ;;
+            *)
+                echo "Opción inválida."
+                menu_principal
+                ;;
+        esac
+    
+    elif [ "$tipo_metodologias" == "metodologías tradicionales" ]; then
+        
+        echo "Bienvenido a la guía rápida de $tipo_metodologias, para continuar seleccione un tema:"
+        echo "1. Cascada"
+        echo "2. Espiral"
+        echo "3. Modelo V"
+        echo "4. Salir"
+
+        read opcion
+
+        case $opcion in
+            1)
+                nombre_seccion="CASCADA"
+                archivo="cascada.inf"
+                submenu
+                ;;
+            2)
+                nombre_seccion="ESPIRAL"
+                archivo="espiral.inf"
+                submenu
+                ;;
+            3)
+                nombre_seccion="MODELO V"
+                archivo="modelo v.inf"
+                submenu
+                ;;
+            4)
+                exit 0
+                ;;
+            *)
+                echo "Opción inválida."
+                menu_principal
+                ;;
+        esac
+    fi
+}
+
+# Verificación de parámetros
+if [ $# -ne 1 ]; then
+    echo "Error: se debe proporcionar un parámetro -a o -t."
+    exit 1
+fi
+
+if [ "$1" == "-a" ]; then
+    tipo_metodologias="Agile"
+elif [ "$1" == "-t" ]; then
+    tipo_metodologias="metodologías tradicionales"
+else
+    echo
+fi 
+
+menu_principal
