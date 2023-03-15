@@ -22,6 +22,7 @@ Bienvenido a la guía rápida de metodologías tradicionales, para continuar sel
             Espiral
             Modelo V
 
+__________________________
 ```
 menu_principal() {
     if [ "$tipo_metodologias" == "Agile" ]; then
@@ -102,7 +103,7 @@ menu_principal() {
     fi
 }
 ```
-
+__________________________
 
 ##Paso 2
 
@@ -116,6 +117,7 @@ Usted esta en la sección ${nombre de la sección}, seleccione la opción que de
             Leer base de información.
 
 
+__________________________
 ```
 submenu() {
     echo "Usted esta en la sección $seccion, seleccione la opción que desea utilizar:"
@@ -158,6 +160,7 @@ submenu() {
     esac
 }
 ```
+__________________________
 
 ##Paso 3 y Paso 4
 
@@ -166,7 +169,7 @@ submenu() {
 [concepto(1)] .- Definición.
 
 -Al agregar información se debe solicitar el identificador del concepto y la definición al guardarlo se debe de formatear y anexar al final del archivo.
-
+__________________________
 ```
 agregar_info() {
     echo "Ingrese el identificador del concepto:"
@@ -178,11 +181,13 @@ agregar_info() {
     echo " "
 }
 ```
+__________________________
 
 ## Paso 5
 
 Al ejecutar la opción buscar deberá solicitar el elemento a buscar dentro del archivo (se debe ubicar el identificador utilizando expresiones regulares).
 
+__________________________
 ```
 buscar_info() {
     echo "Ingrese el identificador a buscar:"
@@ -190,11 +195,13 @@ buscar_info() {
     grep "\[$id\]" "$archivo" || echo "No se encontró información."
 }
 ```
+__________________________
 
 ## Paso 6
 
 Al eliminar información debe solicitarnos el concepto y quitarlo del archivo.
 
+__________________________
 ```
 eliminar_info() {
     echo "Ingrese el identificador a eliminar:"
@@ -204,8 +211,11 @@ eliminar_info() {
     echo " "    
 }
 ```
+__________________________
+
 ## Paso 7
 Al seleccionar leer la base de información nos debe de imprimir en pantalla el contenido del archivo.
+__________________________
 
 ```
 leer_archivo() {
@@ -213,13 +223,17 @@ leer_archivo() {
     cat "$archivo"
 }
 ```
+__________________________
 
 ## Paso 8
 Al terminar la ejecución de un comando debe pedirnos una siguiente opción, volver al menú anterior o terminar la ejecución.
 
+__________________________
 ```
 Ya implementado en el menú
 ```
+__________________________
+
 ## Paso 9
 
 Empaquete en una imagen de docker su aplicación bash, deberá al ejecutarse un contenedor lanzar inmediatamente su aplicación. 
