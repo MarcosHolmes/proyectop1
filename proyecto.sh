@@ -31,6 +31,25 @@ submenu() {
     read opcion
 
     case $opcion in
+        1)
+            agregar_info
+            submenu
+            ;;
+        2)
+            buscar_info
+            submenu
+            ;;
+        3)
+            eliminar_info
+            submenu
+            ;;
+        4)
+            imprimir_archivo
+            submenu
+            ;;
+        5)
+            menu_principal
+            ;;
         6)
             exit 0
             ;;
@@ -40,6 +59,7 @@ submenu() {
             ;;
     esac
 }
+
 
 # Función para mostrar el menú principal
 menu_principal() {
