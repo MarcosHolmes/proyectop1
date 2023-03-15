@@ -237,6 +237,20 @@ __________________________
 ## Paso 9
 
 Empaquete en una imagen de docker su aplicación bash, deberá al ejecutarse un contenedor lanzar inmediatamente su aplicación. 
+```
+__________________________
+Dentro del dockerfile: 
+
+FROM ubuntu:latest
+COPY proyecto.sh /proyecto/
+
+ENTRYPOINT ["/bin/bash", "/proyecto/proyecto.sh"]
+
+PARA EJECUTAR EL CONTENEDOR Y PROBAR LA APLICACIÓN:
+
+docker pull a348810/proyectop1
+
+docker run --rm -it a348810/proyectop1 -"parametro (-a|-t)" 
 
 ## Versiones
 
