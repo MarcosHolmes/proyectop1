@@ -105,7 +105,7 @@ menu_principal() {
 ```
 __________________________
 
-##Paso 2
+## Paso 2
 
 Una vez seleccionado un tema en especifico deberá de mostrar las siguientes opciones:
 
@@ -162,7 +162,7 @@ submenu() {
 ```
 __________________________
 
-##Paso 3 y Paso 4
+## Paso 3 y Paso 4
 
 -La idea de este sub menú es almacenar información en archivos con extensión .inf (uno por cada metodología) el cual tendrá la siguiente estructura:
 
