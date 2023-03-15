@@ -1,3 +1,16 @@
+#!/bin/bash
+
+# Función para agregar información
+agregar_info() {
+    echo "Ingrese el identificador del concepto:"
+    read id
+    echo "Ingrese la definición:"
+    read definicion
+    echo "[$id] .- $definicion." >> "$archivo"
+    echo "Información agregada correctamente."
+    echo " "
+}
+
 # Función para mostrar el submenú de opciones
 submenu() {
     echo "Usted esta en la sección $nombre_seccion, seleccione la opción que desea utilizar:"
