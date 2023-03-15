@@ -18,6 +18,21 @@ buscar_info() {
     grep "\[$id\]" "$archivo" || echo "No se encontró información."
 }
 
+# Función para eliminar información de un archivo
+eliminar_info() {
+    echo "Ingrese el identificador a eliminar:"
+    read id
+    sed -i "/\[$id\]/d" "$archivo"
+    echo "Información eliminada correctamente."
+    echo " "    
+}
+
+# Función para leer el contenido de un archivo
+leer_archivo() {
+    echo "Contenido del archivo $archivo:"
+    cat "$archivo"
+}
+
 # Función para mostrar el submenú de opciones
 submenu() {
     echo "Usted esta en la sección $nombre_seccion, seleccione la opción que desea utilizar:"
@@ -44,7 +59,7 @@ submenu() {
             submenu
             ;;
         4)
-            imprimir_archivo
+            leer_archivo
             submenu
             ;;
         5)
