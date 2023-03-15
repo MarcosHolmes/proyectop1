@@ -237,8 +237,8 @@ __________________________
 ## Paso 9
 
 Empaquete en una imagen de docker su aplicación bash, deberá al ejecutarse un contenedor lanzar inmediatamente su aplicación. 
-```
 __________________________
+```
 Dentro del dockerfile: 
 
 FROM ubuntu:latest
@@ -251,7 +251,8 @@ PARA EJECUTAR EL CONTENEDOR Y PROBAR LA APLICACIÓN:
 docker pull a348810/proyectop1
 
 docker run --rm -it a348810/proyectop1 -"parametro (-a|-t)" 
-
+```
+__________________________
 ## Versiones
 
 Usamos Github, Gitlab y Bitbucket para el control de versiones. Para consultar las versiones de este proyecto consulte los commits en este repositorio.
