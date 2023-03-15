@@ -11,6 +11,13 @@ agregar_info() {
     echo " "
 }
 
+# Función para buscar información en un archivo
+buscar_info() {
+    echo "Ingrese el identificador a buscar:"
+    read id
+    grep "\[$id\]" "$archivo" || echo "No se encontró información."
+}
+
 # Función para mostrar el submenú de opciones
 submenu() {
     echo "Usted esta en la sección $nombre_seccion, seleccione la opción que desea utilizar:"
